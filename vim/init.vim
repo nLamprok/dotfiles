@@ -1,15 +1,14 @@
 " File  : init.vim
-" Author: Matthieu Petiteau <mpetiteau.pro@gmail.com>
-" Date  : 05.02.2020
+" Author: Nasos Lamprokostopoulos <nlamprok@gmail.com>
 "
 " neovim config file
-"
 
 "
 " PLUGIN MANAGER (vim-plug)
 " --------------------------------------------------------------------
 call plug#begin()
 
+Plug 'morhetz/gruvbox'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sbdchd/neoformat'
@@ -203,6 +202,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " --------------------------------------------------------------------
 set background=dark
 set t_Co=256
+colorscheme gruvbox
 
 " GUI mode
 if (has("gui_running"))

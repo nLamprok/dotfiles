@@ -1,7 +1,6 @@
 #!/bin/bash
 # File  : install-cask.sh
-# Author: Matthieu Petiteau <mpetiteau.pro@gmail.com>
-# Date  : 27.12.2019
+# Author: Nasos Lamprokostopoulos <nlamprok@gmail.com>
 
 if ! brew cask list | grep -ri $1 >/dev/null; then
     name=$(echo $1 | sed -E 's/[-_]+/ /g')
