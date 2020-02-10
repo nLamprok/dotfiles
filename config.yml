@@ -1,0 +1,73 @@
+# Mapping of symlinks.
+#
+# Notes:
+#     __root__ will be replaced by user root directory.
+#
+
+# All non-standard directories, to create if doesn't exist.
+directories:
+    - __root__.pip
+    - __root__.antigen
+    - __root__.config/alacritty
+    - __root__.config/nvim
+    - __root__.config/nvim/colors
+
+# List of all symlinks.
+links:
+    __root__.zshrc:                                     zsh/zshrc
+    __root__.pylintrc:                                  python/pylintrc
+    __root__.tmux.conf:                                 tmux/tmux.conf
+    __root__.gitconfig:                                 git/gitconfig
+    __root__.gitignore_global:                          git/gitignore_global
+    __root__.config/alacritty/alacritty.yml:            alacritty/alacritty.yml
+    __root__.config/nvim/init.vim:                      vim/init.vim
+    __root__.config/nvim/colors/smallwat3r.vim:         vim/colors/smallwat3r.vim
+    __root__.pip/pip.conf:                              pip/pip.conf
+    /usr/local/bin/localip:                             bin/localip
+    /usr/local/bin/battery:                             bin/battery
+
+# Brew packages.
+brew:
+    - tmux
+    - redis
+    # - nnn
+    # - lazygit
+    # - lazydocker
+    - git
+    - python3
+    # - ddgr
+    - wget
+    - zsh
+    # - mysql
+    # - sqlite
+    - fzf
+    - htop
+    # - exa
+    - curl
+    - bash
+    - gnu-sed
+    # - tree
+    # - jsonnet
+    # - xclip
+    - jq
+    - make
+    # - fd
+    # - gawk
+    # - translate-shell
+    - the_silver_searcher  # ag
+    - ripgrep
+    # - vim
+    - neovim
+
+# Brew cask installs.
+cask:
+    - sequel-pro
+    # - docker
+    - alacritty
+    # - rectangle
+    # - nordvpn
+    - slack
+    - alfred
+    # - ngrok
+    # - thunderbird
+    - google-chrome

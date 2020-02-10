@@ -1,0 +1,56 @@
+#MacOS config file and preferences.
+
+# No font smoothing
+defaults -currentHost write -g AppleFontSmoothing -int 1
+# defaults write com.apple.Terminal AppleFontSmoothing -int 1
+# defaults write org.vim.MacVim AppleFontSmoothing -int 1
+defaults write NSGlobalDomain AppleFontSmoothing -int 1
+
+# Dark UI
+defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
+
+# MacVim padding
+defaults write org.vim.MacVim MMTextInsetTop '5'
+defaults write org.vim.MacVim MMTextInsetLeft '5'
+defaults write org.vim.MacVim MMTextInsetBottom '5'
+defaults write org.vim.MacVim MMTextInsetRight '5'
+
+# Disable [ ] in mac terminal
+defaults write com.apple.Terminal AutoMarkPromptLines -bool false
+defaults write com.apple.Terminal ShowLineMarks -bool false
+# Terminal scrollbars
+defaults write com.apple.Terminal AppleShowScrollBars -string "Automatic"
+
+# Don't show recent
+defaults write com.apple.dock show-recents -bool false
+
+#disable special characters when holding keys
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# normal minimum is 15 (225 ms)
+defaults write -g InitialKeyRepeat -float 10.0
+defaults write NSGlobalDomain InitialKeyRepeat -float 10.0
+
+# normal minimum is 2 (30 ms)
+defaults write -g KeyRepeat -float 1.0
+defaults write NSGlobalDomain KeyRepeat -float 1.0
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+# Disable auto capitalize
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+# Disable iuto period insert
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Disable ihe system alert sound
+defaults write NSGlobalDomain com.apple.sound.beep.volume -int 0
+defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
+
+# Remove shortcuts that are annoying while using tmux or switching with vim
+defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Mission Control' nil
+defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Application windows' nil
+defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Move left a space' nil
+defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Move right a space' nil
+
+# Set default wallpaper to Stone.
+osascript -e "tell application \"System Events\" to set picture of every desktop to \"/Library/Desktop Pictures/Solid Colors/Stone.png\""
