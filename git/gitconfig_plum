@@ -1,0 +1,18 @@
+# This is Plum configuration for commit signing
+
+[user]
+name = Nasos Lamprokostopoulos
+email = nasos@withplum.com
+signingkey = 0x664C8A68767252B7
+
+[alias]
+signrebase = !git rebase --exec 'git commit --amend --no-edit -n -S' -i
+
+[alias]
+signlast = !git rebase --exec 'git commit --amend --no-edit -n -S' -i HEAD~1
+
+[commit]                                                                        
+gpgsign = true 
+
+[gpg]
+program = gpg2

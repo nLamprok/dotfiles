@@ -1,6 +1,6 @@
 [user]
-    name = Matthieu Petiteau
-    email = mpetiteau.pro@gmail.com
+    name = Nasos Lamprokostopoulos
+    email = nlamprok@gmail.com
 
 [core]
     autocrlf = input
@@ -11,9 +11,6 @@
     noprefix = true
     algorithm = patience
     renames = copies
-
-[merge]
-    tool = vimdiff
 
 [push]
     default = simple
@@ -49,3 +46,6 @@
 # https://github.com/alrra/dotfiles/blob/master/src/git/gitconfig
 [pretty]
     custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+
+[includeIf "gitdir:~/Code/plum/"]
+  path = .gitconfig_plum

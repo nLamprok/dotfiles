@@ -18,6 +18,7 @@ links:
     __root__.pylintrc:                                  python/pylintrc
     __root__.tmux.conf:                                 tmux/tmux.conf
     __root__.gitconfig:                                 git/gitconfig
+    __root__.gitconfig_plum:                            git/gitconfig_plum
     __root__.gitignore_global:                          git/gitignore_global
     __root__.config/alacritty/alacritty.yml:            alacritty/alacritty.yml
     __root__.config/nvim/init.vim:                      vim/init.vim
