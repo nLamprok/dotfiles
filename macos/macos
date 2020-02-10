@@ -9,15 +9,6 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 1
 # Dark UI
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
-# MacVim padding
-defaults write org.vim.MacVim MMTextInsetTop '5'
-defaults write org.vim.MacVim MMTextInsetLeft '5'
-defaults write org.vim.MacVim MMTextInsetBottom '5'
-defaults write org.vim.MacVim MMTextInsetRight '5'
-
-# Disable [ ] in mac terminal
-defaults write com.apple.Terminal AutoMarkPromptLines -bool false
-defaults write com.apple.Terminal ShowLineMarks -bool false
 # Terminal scrollbars
 defaults write com.apple.Terminal AppleShowScrollBars -string "Automatic"
 
@@ -52,5 +43,3 @@ defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Application window
 defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Move left a space' nil
 defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Move right a space' nil
 
-# Set default wallpaper to Stone.
-osascript -e "tell application \"System Events\" to set picture of every desktop to \"/Library/Desktop Pictures/Solid Colors/Stone.png\""
