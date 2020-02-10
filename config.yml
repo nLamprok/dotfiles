@@ -21,7 +21,6 @@ links:
     __root__.gitignore_global:                          git/gitignore_global
     __root__.config/alacritty/alacritty.yml:            alacritty/alacritty.yml
     __root__.config/nvim/init.vim:                      vim/init.vim
-    __root__.config/nvim/colors/smallwat3r.vim:         vim/colors/smallwat3r.vim
     __root__.pip/pip.conf:                              pip/pip.conf
     /usr/local/bin/localip:                             bin/localip
     /usr/local/bin/battery:                             bin/battery
@@ -29,45 +28,39 @@ links:
 # Brew packages.
 brew:
     - tmux
-    - redis
-    # - nnn
-    # - lazygit
-    # - lazydocker
     - git
     - python3
-    # - ddgr
     - wget
     - zsh
-    # - mysql
-    # - sqlite
     - fzf
     - htop
-    # - exa
+    - gotop
+    - exa
     - curl
     - bash
     - gnu-sed
-    # - tree
-    # - jsonnet
-    # - xclip
+    - tree
     - jq
     - make
-    # - fd
-    # - gawk
-    # - translate-shell
     - the_silver_searcher  # ag
     - ripgrep
-    # - vim
     - neovim
 
 # Brew cask installs.
 cask:
-    - sequel-pro
-    # - docker
+    - tableplus
+    - docker
     - alacritty
-    # - rectangle
-    # - nordvpn
-    - slack
+    - rectangle
+    - firefox-developer-edition
     - alfred
-    # - ngrok
-    # - thunderbird
+    - spotify
+    - bartender
+    - bitbar
+    - flux
+    - imageoptim
+    - pritunl
+    - sip
+    - transmission
+    - ngrok
     - google-chrome
