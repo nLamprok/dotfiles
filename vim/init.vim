@@ -203,11 +203,6 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " --------------------------------------------------------------------
 set background=dark
 set t_Co=256
-colo smallwat3r
-
-" Other colortheme for Markdown
-autocmd! BufEnter,BufNewFile *.md colo elflord
-autocmd! BufLeave *.md colo smallwat3r
 
 " GUI mode
 if (has("gui_running"))
@@ -235,43 +230,6 @@ function! GitInfo()
   else
     return ''
 endfunction
-
-" Statusline vim mode colors
-hi NormalColor guifg=Black guibg=Green ctermbg=46 ctermfg=0
-hi InsertColor guifg=Black guibg=Cyan ctermbg=51 ctermfg=0
-hi ReplaceColor guifg=Black guibg=maroon1 ctermbg=165 ctermfg=0
-hi VisualColor guifg=Black guibg=Orange ctermbg=202 ctermfg=0
-hi CommandColor guifg=Black guibg=Pink ctermbg=13 ctermfg=0
-
-" Statusline active
-function! ActiveStatusLine()
-    let statusline=" \uF114 %n "
-    let statusline.="%#NormalColor#%{(mode()=='n')?'\ NORMAL\ ':''}"
-    let statusline.="%#InsertColor#%{(mode()=='i')?'\ INSERT\ ':''}"
-    let statusline.="%#ReplaceColor#%{(mode()=='R')?'\ REPLACE\ ':''}"
-    let statusline.="%#VisualColor#%{(mode()=='v')?'\ VISUAL\ ':''}"
-    let statusline.="%#CommandColor#%{(mode()=='c')?'\ COMMAND\ ':''}"
-    let statusline.="\%*\ %<%F\ %{GitInfo()}\ %{LinterStatus()}"
-    let statusline.="%{&modified?'\  \uf457':''}"
-    let statusline.="%{&readonly?'\  \uf023':''}"
-    let statusline.="\ %=%-14.(%l,%c%)"
-    let statusline.="\ %{strlen(&fenc)?&fenc:&enc}\ %P\ %L "
-    return statusline
-endfunction
-
-" Statusline inactive
-function! InactiveStatusLine()
-    let statusline=" \uF114 %n "
-    let statusline.="\%*\ %<%F\ %{GitInfo()}\ %{LinterStatus()}"
-    let statusline.="%{&modified?'\  \uf457':''}"
-    let statusline.="%{&readonly?'\  \uf023':''}"
-    let statusline.="\ %=%-14.(%l,%c%)"
-    let statusline.="\ %{strlen(&fenc)?&fenc:&enc}\ %P\ %L "
-    return statusline
-endfunction
-
-" Set statusline
-set statusline=%!ActiveStatusLine()
 
 " Switch windows statusline
 augroup status
