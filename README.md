@@ -3,11 +3,10 @@
 My config files for macOS.  
 
 **This repo is primarly created for personnal use, and is updated frequently**  
-**!!! Please create backups of your current set-up if you intend to use these dotfiles !!!**  
 
 Clone repo
 ```sh
-git clone https://github.com/smallwat3r/dotfiles.git
+git clone https://github.com/nLamprok/dotfiles.git
 ```
 
 ## Commands
