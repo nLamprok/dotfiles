@@ -27,17 +27,16 @@ tabspaces: 4
 
 font:
   normal:
-    # family: Hack Nerd Font Mono
-    family: mononoki Nerd Font Mono
-    style: Regular
+    family: "BlexMono Nerd Font Mono"
+    style: Medium
   italic:
-    family: mononoki Nerd Font Mono
-    style: Italic
+    family: "BlexMono Nerd Font Mono"
+    style: "ExtraLight Italic"
   bold:
-    family: mononoki Nerd Font Mono
+    family: "BlexMono Nerd Font Mono"
     style: Bold
 
-  size: 14
+  size: 12
 
   offset:
     x: 0
