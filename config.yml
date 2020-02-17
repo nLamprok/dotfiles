@@ -63,4 +63,5 @@ cask:
     - sip
     - transmission
     - ngrok
+    - firefox
     - google-chrome
