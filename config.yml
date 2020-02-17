@@ -45,6 +45,7 @@ brew:
     - the_silver_searcher  # ag
     - ripgrep
     - neovim
+    - pinentry-mac
 
 # Brew cask installs.
 cask:
