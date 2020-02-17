@@ -9,11 +9,13 @@
 call plug#begin()
 
 Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
 Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'airblade/vim-rooter'
 
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
@@ -28,8 +30,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'machakann/vim-sandwich'
 Plug 'itchyny/vim-highlighturl'
-Plug 'pacha/vem-tabline'
 Plug 'tpope/vim-unimpaired'
+Plug 'ap/vim-buftabline'
 
 " Completion
 Plug 'davidhalter/jedi-vim'
@@ -76,9 +78,6 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 
-" Vem tabline
-let g:vem_tabline_show_number='buffnr'
-
 "
 " GENERAL CONFIG
 " --------------------------------------------------------------------
@@ -113,7 +112,8 @@ set ttyfast
 set laststatus=2  " always show statusline
 set noshowcmd
 set noruler
-set nonu  " hide row numbers
+set hidden " change buffers without writing
+set number relativenumber " enable relative line numbers
 set modifiable
 set showmatch  " matching brackets
 set mouse=a  " mouse support
@@ -204,15 +204,6 @@ set background=dark
 set t_Co=256
 colorscheme gruvbox
 
-" GUI mode
-if (has("gui_running"))
-    set linespace=0
-    set fontligatures
-    set guifont=Monaco:h13
-    set guioptions-=mTrL  " remove all GUI widgets
-    set gcr=a:blinkon0    " no blinking cursor
-endif
-
 " Italics
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
@@ -230,13 +221,6 @@ function! GitInfo()
   else
     return ''
 endfunction
-
-" Switch windows statusline
-augroup status
-    autocmd!
-    autocmd WinEnter * setlocal statusline=%!ActiveStatusLine()
-    autocmd WinLeave * setlocal statusline=%!InactiveStatusLine()
-augroup END
 
 "
 " KEYBINDINGS
@@ -264,8 +248,13 @@ nmap <leader><space> :nohlsearch<cr>
 map <leader>e :e! ~/dotfiles/vim/init.vim<cr>
 autocmd! bufwritepost ~/dotfiles/vim/init.vim source ~/dotfiles/vim/init.vim
 
+" Moving through buffers
+nnoremap <leader>] :bnext<CR>
+nnoremap <leader>[ :bprev<CR>
+
 " Navigate files, buffers etc. (fzf)
 nmap <leader>b :Buffers<CR>
+nmap <leader>p :FZF<CR>
 nmap <leader>f :Files<CR>
 nmap <leader>l :BLines<CR>
 nmap <leader>; :Rg<CR>
@@ -323,3 +312,4 @@ function! CustomFoldText()
 endfunction
 
 set foldtext=CustomFoldText()
+
