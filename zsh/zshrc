@@ -76,7 +76,8 @@ for e (globbing rc-quote path path_separator history-expansion command-substitut
 ZSH_HIGHLIGHT_STYLES[comment]="fg=146"
 ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=161"  # errors
 
-ZSH_THEME="spaceship"
+# activate starship (Prompt)
+eval "$(starship init zsh)"
 
 #
 # ALIASES

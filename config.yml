@@ -20,6 +20,7 @@ links:
     __root__.gitconfig_plum:                            git/gitconfig_plum
     __root__.gitignore_global:                          git/gitignore_global
     __root__.config/alacritty/alacritty.yml:            alacritty/alacritty.yml
+    __root__.config/starship.toml:                      starship/starship.toml
     __root__.config/nvim/init.vim:                      vim/init.vim
     __root__.pip/pip.conf:                              pip/pip.conf
     /usr/local/bin/localip:                             bin/localip
@@ -46,6 +47,7 @@ brew:
     - ripgrep
     - neovim
     - pinentry-mac
+    - starship
 
 # Brew cask installs.
 cask:
