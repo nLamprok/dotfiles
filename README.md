@@ -11,14 +11,14 @@ git clone https://github.com/nLamprok/dotfiles.git
 
 ## Commands
 
-Allow user to access man pages (needed to install packages via brew)
-```sh
-sudo chown -R $(whoami) /usr/local/share/man/man3
-```
-
 Install Homebrew
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Allow user to access man pages (needed to install packages via brew)
+```sh
+sudo chown -R $(whoami) /usr/local/share/man/man3
 ```
 
 Dotfiles are managed by a YAML config file `config.yml`  

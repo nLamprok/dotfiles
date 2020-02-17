@@ -79,6 +79,7 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]="fg=161"  # errors
 #
 # ALIASES
 # --------------------------------------------------------------------------------------
+alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias svi="sudo nvim"
