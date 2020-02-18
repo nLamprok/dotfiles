@@ -89,13 +89,10 @@ alias svi="sudo nvim"
 alias edit="nvim"
 alias e="nvim"
 
-alias gvi="gnvim"
-
-alias mvi="mvim"
-
 alias dots="cd $HOME/dotfiles"
 alias vie="$EDITOR $HOME/dotfiles/vim/init.vim"
 alias zshe="$EDITOR $HOME/dotfiles/zsh/zshrc"
+alias code="cd $HOME/Code"
 
 alias python="python3"
 alias pip="pip3"
