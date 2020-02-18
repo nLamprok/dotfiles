@@ -41,7 +41,7 @@ export FZF_DEFAULT_OPTS="
     --color fg:231,bg:232,hl:199,fg+:231,bg+:238,hl+:201
     --color info:189,prompt:161,spinner:201,pointer:201,marker:118
 "
-export FZF_DEFAULT_COMMAND="fd -t f -H -L -E .git -E __pycache__"
+export FZF_DEFAULT_COMMAND="rg --files --ignore-vcs --hidden"
 
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -137,6 +137,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
+alias dc="docker-compose"
+
 #
 # FUNCTIONS
 # --------------------------------------------------------------------------------------
@@ -201,7 +203,6 @@ extract() {
 # --------------------------------------------------------------------------------------
 source $ZSH/oh-my-zsh.sh
 if [ -t 0 ] && [[ -z $TMUX ]] && [[ $- = *i* ]]; then exec tmux; fi  # exec tmux on start
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zsh-vim yank copy to clipboard.
 function vi-yank-xclip {
@@ -213,3 +214,6 @@ bindkey -M vicmd 'y' vi-yank-xclip
 
 # activate zsh-vim.
 bindkey -v
+
+# add fzf key bindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

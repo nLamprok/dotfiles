@@ -32,6 +32,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'itchyny/vim-highlighturl'
 Plug 'tpope/vim-unimpaired'
 Plug 'ap/vim-buftabline'
+Plug 'mxw/vim-jsx'
 
 " Completion
 Plug 'davidhalter/jedi-vim'
@@ -71,7 +72,7 @@ let g:neoformat_basic_format_trim=1
 
 " fzf
 command! -bang -nargs=? -complete=dir Files
-    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.config/nvim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
@@ -254,8 +255,7 @@ nnoremap <leader>[ :bprev<CR>
 
 " Navigate files, buffers etc. (fzf)
 nmap <leader>b :Buffers<CR>
-nmap <leader>p :FZF<CR>
-nmap <leader>f :Files<CR>
+nmap <leader>p :Files<CR>
 nmap <leader>l :BLines<CR>
 nmap <leader>; :Rg<CR>
 
