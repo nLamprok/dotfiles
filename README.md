@@ -18,14 +18,14 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 Allow user to access man pages (needed to install packages via brew)
 ```sh
-sudo chown -R $(whoami) /usr/local/share/man/man3
+sudo mkdir /usr/local/share/man/man3 && chown -R $(whoami) /usr/local/share/man/man3
 ```
 
 Dotfiles are managed by a YAML config file `config.yml`  
 It requires Perl `YAML::XS` (scripts `brew` and `symlink`)  
 Step to do after installing Homebrew  
 ```sh
-perl -MCPAN -e 'install YAML::XS'
+sudo perl -MCPAN -e 'install YAML::XS'
 ```
 
 Install oh-my-zsh
