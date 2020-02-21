@@ -33,6 +33,7 @@ Plug 'itchyny/vim-highlighturl'
 Plug 'tpope/vim-unimpaired'
 Plug 'ap/vim-buftabline'
 Plug 'mxw/vim-jsx'
+Plug 'editorconfig/editorconfig-vim'
 
 " Completion
 Plug 'davidhalter/jedi-vim'
