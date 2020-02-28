@@ -37,6 +37,7 @@ brew:
     - htop
     - gotop
     - exa
+    - httpie
     - curl
     - bash
     - gnu-sed

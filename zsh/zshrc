@@ -112,6 +112,8 @@ alias vs="tmux splitw -h"
 alias tks="tmux kill-session -t"
 alias tksa="tmux kill-session -a"
 alias tls="tmux list-sessions"
+alias tma="tmux a -t"
+alias tsw="tmux switch -t"
 
 alias p="pwd"
 alias ls="ls -p"
@@ -135,6 +137,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 alias dc="docker-compose"
+alias ngrokplum="ngrok start plum plum-facebook plum-client"
 
 #
 # FUNCTIONS
@@ -195,6 +198,22 @@ extract() {
     fi
 }
 
+# Plum stuff:
+
+pgstage_ro() {
+  PASSWD=$(vault read -address https://vault.srv.withplum.com -field=PASSWORD kv/envs/staging/pg/main/app_ro)
+  PGPASSWORD=$PASSWD psql -d plum -U app_ro -h 10.20.0.7
+}
+
+pgstage_rw() {
+  PASSWD=$(vault read -address https://vault.srv.withplum.com -field=PASSWORD kv/envs/staging/pg/main/app_rw)
+  PGPASSWORD=$PASSWD psql -d plum -U app_rw -h 10.20.0.7
+}
+
+# Run tests for plum
+function plumtest { time docker-compose exec api py.test -vv -s $1 }
+function ptestp { time docker-compose exec api py.test -n 4 -vv -s tests/*/$1 }
+
 #
 # EOF scripts
 # --------------------------------------------------------------------------------------
@@ -214,3 +233,10 @@ bindkey -v
 
 # add fzf key bindings
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Use GPG Agent for SSH
+export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+gpgconf --launch gpg-agent
+
+# Use pyenv
+eval "$(pyenv init -)"

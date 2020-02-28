@@ -45,8 +45,7 @@ curl -L git.io/antigen > ~/dotfiles/zsh/antigen.zsh
 
 neovim vim-plug plugin manager
 ```sh
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Then run :PlugInstall
 ```
@@ -67,14 +66,7 @@ Symlink all dotfiles to system
 perl symlink
 ```
 
-Mononoki Nerd fonts
-```sh
-wget -O mononoki-regular-nerd.ttf \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Mononoki/Regular/complete/mononoki-Regular%20Nerd%20Font%20Complete%20Mono.ttf
-wget -O mononoki-italic-nerd.ttf \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Mononoki/Italic/complete/mononoki%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
-wget -O mononoki-italic-bold-nerd.ttf \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Mononoki/Bold-Italic/complete/mononoki%20Bold%20Italic%20Nerd%20Font%20Complete%20Mono.ttf
-wget -O mononoki-bold-nerd.ttf \
-    https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Mononoki/Bold/complete/mononoki%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
-```
+Misc:
+
+- Current font: [IBM Plex Mono with Nerdfonts](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/IBMPlexMono.zip)
+- Gruvbox theme for Terminal.app: [Gruvbox-dark](https://github.com/morhetz/gruvbox-contrib/tree/master/osx-terminal)

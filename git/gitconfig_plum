@@ -11,8 +11,8 @@ signrebase = !git rebase --exec 'git commit --amend --no-edit -n -S' -i
 [alias]
 signlast = !git rebase --exec 'git commit --amend --no-edit -n -S' -i HEAD~1
 
-[commit]                                                                        
-gpgsign = true 
+[commit]
+gpgsign = true
 
 [gpg]
 program = gpg2
