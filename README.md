@@ -70,3 +70,4 @@ Misc:
 
 - Current font: [IBM Plex Mono with Nerdfonts](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/IBMPlexMono.zip)
 - Gruvbox theme for Terminal.app: [Gruvbox-dark](https://github.com/morhetz/gruvbox-contrib/tree/master/osx-terminal)
+- Alfred workflow to search notes: [Notes search](https://www.packal.org/workflow/search-apple-notes)
