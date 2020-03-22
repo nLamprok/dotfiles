@@ -15,4 +15,4 @@ signlast = !git rebase --exec 'git commit --amend --no-edit -n -S' -i HEAD~1
 gpgsign = true
 
 [gpg]
-program = gpg2
+program = gpg

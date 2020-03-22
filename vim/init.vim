@@ -33,6 +33,8 @@ Plug 'itchyny/vim-highlighturl'
 Plug 'tpope/vim-unimpaired'
 Plug 'ap/vim-buftabline'
 Plug 'mxw/vim-jsx'
+Plug 'mattn/emmet-vim'
+Plug 'jwalton512/vim-blade'
 Plug 'editorconfig/editorconfig-vim'
 
 " Completion
@@ -70,6 +72,12 @@ let g:ale_echo_msg_format='[%linter%] %s [%severity%]'
 let g:neoformat_basic_format_align=1
 let g:neoformat_basic_format_retab=1
 let g:neoformat_basic_format_trim=1
+
+" emmet
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<C-M>'
+autocmd FileType html,blade EmmetInstall
 
 " fzf
 command! -bang -nargs=? -complete=dir Files

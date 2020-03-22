@@ -47,8 +47,8 @@
 [pretty]
     custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
 
-[includeIf "gitdir/i:~/Plum/"]
+[includeIf "gitdir/i:~/code/plum/"]
     path = .gitconfig_plum
 
 [gpg]
-    program = gpg2
+    program = gpg
