@@ -36,6 +36,7 @@ Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 Plug 'jwalton512/vim-blade'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'cakebaker/scss-syntax.vim'
 
 " Completion
 Plug 'davidhalter/jedi-vim'
@@ -76,7 +77,6 @@ let g:neoformat_basic_format_trim=1
 " emmet
 let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
-let g:user_emmet_leader_key='<C-M>'
 autocmd FileType html,blade EmmetInstall
 
 " fzf
