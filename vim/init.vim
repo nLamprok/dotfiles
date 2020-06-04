@@ -7,7 +7,7 @@
 " PLUGIN MANAGER (vim-plug)
 " --------------------------------------------------------------------
 call plug#begin()
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
@@ -269,6 +269,9 @@ let &t_SI.="\e[6 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[2 q" "EI = NORMAL mode (ELSE)
 
+" Enable TRUE COLOR for nvim
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " Show git info in statusline
 function! GitInfo()
   let git = fugitive#head()
@@ -331,6 +334,9 @@ nmap <silent> gr <Plug>(coc-references)
 " formatting selected code
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+
+" format the whole file
+nmap <leader>F :CocCommand prettier.formatFile<CR>
 
 " FUNCTIONS
 " --------------------------------------------------------------------
