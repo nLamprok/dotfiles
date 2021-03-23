@@ -20,6 +20,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'noahfrederick/vim-laravel'
+Plug 'OmniSharp/omnisharp-vim'
 call plug#end()
 
 "

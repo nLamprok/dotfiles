@@ -35,6 +35,10 @@ export PATH=$PATH:$HOME/.cargo/bin:$HOME/Library/Python/3.7/bin:/usr/local/bin/n
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='0;30;42'
 
+# gopath
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOPATH=$(go env GOPATH)
+
 # fzf colors
 export FZF_DEFAULT_OPTS="
     --height 40% --layout=reverse --border
@@ -88,6 +92,7 @@ alias vim="nvim"
 alias svi="sudo nvim"
 alias edit="nvim"
 alias e="nvim"
+alias vsc="/usr/local/bin/code"
 
 alias dots="cd $HOME/dotfiles"
 alias vie="$EDITOR $HOME/dotfiles/vim/init.vim"
