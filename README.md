@@ -1,6 +1,6 @@
-# Dotfiles  
+# nLamprok's Dotfiles
 
-My config files for macOS.  
+![](https://i.imgur.com/mRUQN9b.gif)
 
 **This is primararely used to backup personal dotfiles. Don't use it unless you know what you're doing.**  
 
