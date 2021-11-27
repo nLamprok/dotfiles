@@ -88,6 +88,9 @@ else
   export EDITOR='nvim'
 fi
 
+# FZF Bindings
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
