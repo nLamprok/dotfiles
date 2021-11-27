@@ -10,8 +10,15 @@ plugins=(git zsh-syntax-highlighting ripgrep)
 
 source $ZSH/oh-my-zsh.sh
 
+# Agnoster Overrides
+prompt_context() {
+  if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)%n"
+  fi
+}
+
 prompt_dir() {
-  prompt_segment blue $CURRENT_FG '%c'
+  prompt_segment blue $CURRENT_FG '%2~'
 }
 
 # User configuration
