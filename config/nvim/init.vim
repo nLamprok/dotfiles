@@ -36,6 +36,7 @@ set nomodeline
 set autoread  " reread changed files automatically
 set ffs=unix
 set ttyfast
+set termguicolors
 set laststatus=2  " always show statusline
 set noshowcmd
 set hidden " change buffers without writing
@@ -114,6 +115,7 @@ endif
 
 " Plugin declaration
 call plug#begin()
+  Plug 'glepnir/dashboard-nvim'
 	Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
@@ -125,9 +127,12 @@ call plug#begin()
   Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-lua/plenary.nvim'
+  Plug 'yuezk/vim-js'
+  Plug 'maxmellon/vim-jsx-pretty'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'Shatur/neovim-ayu'
   Plug 'nvim-lualine/lualine.nvim'
+  Plug 'norcalli/nvim-colorizer.lua'
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'romgrk/barbar.nvim'
   Plug 'editorconfig/editorconfig-vim'
@@ -136,7 +141,19 @@ call plug#begin()
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'windwp/nvim-autopairs'
   Plug 'tpope/vim-commentary'
+  Plug 'lewis6991/gitsigns.nvim'
 call plug#end()
+
+" Simple plugin configuration (with no /after/plugin file)
+
+" glepnir/dashboard-nvim
+let g:dashboard_default_executive = 'telescope'
+
+" norcalli/nvim-colorizer.lua
+lua require'colorizer'.setup()
+
+" lewis6991/gitsigns.nvim
+lua require('gitsigns').setup()
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " ### INCLUDES
