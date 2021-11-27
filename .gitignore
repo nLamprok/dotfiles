@@ -24,3 +24,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Avoid storing plugins to git :P
+config/nvim/plugged
