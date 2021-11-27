@@ -44,6 +44,19 @@ Symlink all the things you need:
 
 There's a useful (and dangerous) `symlink.sh` command which you can run to setup symlinks.
 
+## Post-Symlinking
+
+Install neovim plugins (uses VimPlug so just open nvim and type: `:PlugInstall`):
+```sh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Install [TPM](https://github.com/tmux-plugins/tpm) for tmux:
+```sh
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# after that, just open tmux and hit Prefix + I to install plugins
+```
+
 ## Fonts
 
 To download them just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):
