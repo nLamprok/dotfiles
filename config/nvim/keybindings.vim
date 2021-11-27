@@ -24,3 +24,7 @@ nnoremap <leader>p <cmd>Telescope git_files<cr>
 nnoremap <leader>r <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>gs <cmd>Telescope git_status<cr>
 
+" replace currently selected text with default register
+" without yanking it
+vnoremap p "_dP
+
