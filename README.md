@@ -59,3 +59,10 @@ Open nvim (it should install VimPlug and do a PlugInstall on first run).
 To download fonts just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):
 
 JetBrainsMono, CaskaydiaCove, Operator Mono (can't be found on NerdFonts).
+
+## Maintaining
+
+Since symlinks are in-place, maintenance is just a simple commit & push to this repo. The only downside
+to the current structure is the `Brewfile`. To update the currently installed brew formulaes and casks 
+simply run the `./updateBrew.sh` executable (assumes that you have brew in your system) and will generate 
+a brand new `Brewfile` which then can be commited and pushed.
