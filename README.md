@@ -56,6 +56,6 @@ Open nvim (it should install VimPlug and do a PlugInstall on first run).
 
 ## Fonts
 
-To download them just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):
+To download fonts just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):
 
 JetBrainsMono, CaskaydiaCove, Operator Mono (can't be found on NerdFonts).
