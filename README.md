@@ -42,6 +42,8 @@ Symlink all the things you need:
 4. `zsh/` has my `.zshrc` which you need to symlink to your home directory `~/`
 5. Don't forget to also symlink your `~/.config/nvim/init.vim` to `~/.vimrc`
 
+There's a useful (and dangerous) `symlink.sh` command which you can run to setup symlinks.
+
 ## Fonts
 
 To download them just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):

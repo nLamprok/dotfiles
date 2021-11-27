@@ -27,3 +27,6 @@ Temporary Items
 
 # Avoid storing plugins to git :P
 config/nvim/plugged
+
+# Avoid storing Raycast's node modules to git 
+config/raycast/extensions/node_modules
