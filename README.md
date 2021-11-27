@@ -2,58 +2,14 @@
 
 My config files for macOS.  
 
-**This repo is primarly created for personnal use, and is updated frequently**  
+**This is primararely used to backup personal dotfiles. Don't use it unless you know what you're doing.**  
 
 Clone repo
 ```sh
 git clone https://github.com/nLamprok/dotfiles.git
 ```
 
-## Commands
-
-Install Homebrew
-```sh
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-Allow user to access man pages (needed to install packages via brew)
-```sh
-sudo mkdir /usr/local/share/man/man3 && chown -R $(whoami) /usr/local/share/man/man3
-```
-
-Dotfiles are managed by a YAML config file `config.yml`  
-It requires Perl `YAML::XS` (scripts `brew` and `symlink`)  
-Step to do after installing Homebrew  
-```sh
-sudo perl -MCPAN -e 'install YAML::XS'
-```
-
-Install oh-my-zsh
-```sh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-Install brew packages, tools, and casks
-```sh
-perl brew
-```
-
-Install antigen (zsh) (will be symlinked to `~/.antigen/antigen.zsh`)
-```sh
-curl -L git.io/antigen > ~/dotfiles/zsh/antigen.zsh
-```
-
-neovim vim-plug plugin manager
-```sh
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# Then run :PlugInstall
-```
-
-python requirements (mainly for formatting)
-```sh
-pip3 install -r pip/requirements.txt
-```
+## Initial Steps
 
 macOS settings
 ```sh
@@ -61,13 +17,33 @@ sh macos/macos
 # Then log user out and back in for all changes to apply
 ```
 
-Symlink all dotfiles to system
+Install Homebrew:
 ```sh
-perl symlink
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Misc:
+Install brew apps (using `Brewfile` from this repo). Just run (in this directory):
+```sh
+brew bundle
+```
 
-- Current font: [IBM Plex Mono with Nerdfonts](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/IBMPlexMono.zip)
-- Gruvbox theme for Terminal.app: [Gruvbox-dark](https://github.com/morhetz/gruvbox-contrib/tree/master/osx-terminal)
-- Alfred workflow to search notes: [Notes search](https://www.packal.org/workflow/search-apple-notes)
+Install oh-my-zsh:
+```sh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+## Symlinking
+
+Symlink all the things you need:
+
+1. `config/` folder contains configuration of most of the things (symlink contents to `~/.config`)
+2. `git/` folder has some useful git configuration (symlink to `~/.gitconfig` & `~/.gitignore_global`)
+3. `ssh/` has a simple config file to make sure macOS uses KeyChain for passphrases
+4. `zsh/` has my `.zshrc` which you need to symlink to your home directory `~/`
+5. Don't forget to also symlink your `~/.config/nvim/init.vim` to `~/.vimrc`
+
+## Fonts
+
+To download them just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):
+
+JetBrainsMono, CaskaydiaCove, Operator Mono (can't be found on NerdFonts).

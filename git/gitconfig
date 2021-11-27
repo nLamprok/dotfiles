@@ -1,54 +1,51 @@
+[init]
+	defaultBranch = master
+
 [user]
-    name = Nasos Lamprokostopoulos
-    email = nlamprok@gmail.com
+	name = Nasos Lamprokostopoulos
+	email = nlamprok@gmail.com
 
 [core]
-    autocrlf = input
-    editor = vim
+  autocrlf = input
+  editor = vim
 
 [diff]
-    tool = vimdiff
-    noprefix = true
-    algorithm = patience
-    renames = copies
+  tool = vimdiff
+  noprefix = true
+  algorithm = patience
+  renames = copies
 
 [push]
-    default = simple
+  default = simple
 
 [color]
-    ui = true
+  ui = true
 
 [color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 
 [color "diff"]
-    meta = yellow bold
-    frag = magenta bold
-    old = red bold
-    new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 
 [color "status"]
-    added = green
-    changed = yellow
-    untracked = magenta
+  added = green
+  changed = yellow
+  untracked = magenta
 
 [url "https://github.com/"]
-    insteadOf = gh:
+  insteadOf = gh:
 
 [url "https://gist.github.com/"]
-    insteadOf = gist:
+  insteadOf = gist:
 
 [alias]
-    plog = log --pretty=custom
+  plog = log --pretty=custom
 
-# https://github.com/alrra/dotfiles/blob/master/src/git/gitconfig
 [pretty]
-    custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+  custom = "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
 
-[includeIf "gitdir/i:~/code/plum/"]
-    path = .gitconfig_plum
-
-[gpg]
-    program = gpg
