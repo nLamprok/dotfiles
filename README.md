@@ -27,11 +27,6 @@ Install brew apps (using `Brewfile` from this repo). Just run (in this directory
 brew bundle
 ```
 
-Install oh-my-zsh:
-```sh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
 ## Symlinking
 
 Symlink all the things you need:
@@ -46,7 +41,7 @@ There's a useful (and dangerous) `symlink.sh` command which you can run to setup
 
 ## Post-Symlinking
 
-Install neovim plugins (uses VimPlug so just open nvim and type: `:PlugInstall`):
+Install oh-my-zsh:
 ```sh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
@@ -56,6 +51,8 @@ Install [TPM](https://github.com/tmux-plugins/tpm) for tmux:
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # after that, just open tmux and hit Prefix + I to install plugins
 ```
+
+Open nvim (it should install VimPlug and do a PlugInstall on first run).
 
 ## Fonts
 
