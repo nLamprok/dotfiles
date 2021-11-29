@@ -131,6 +131,7 @@ call plug#begin()
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'Shatur/neovim-ayu'
+  " Plug 'arcticicestudio/nord-vim' 
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'kyazdani42/nvim-web-devicons'
