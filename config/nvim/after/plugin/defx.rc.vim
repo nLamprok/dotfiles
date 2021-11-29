@@ -5,7 +5,7 @@ endif
 nnoremap <leader>b :<C-u>Defx -listed -resume
       \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
-      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
+      \ `expand('%:p:h')` -search=`expand('%:p')`<CR><CR>
 
 autocmd FileType defx call s:defx_my_settings()
 	function! s:defx_my_settings() abort
