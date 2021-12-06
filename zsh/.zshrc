@@ -72,5 +72,9 @@ alias dc="docker-compose"
 alias sail="vendor/bin/sail"
 alias r="source ~/.zshrc"
 
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+export GIT_EDITOR="$VISUAL"
+
 export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"
