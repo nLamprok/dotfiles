@@ -79,3 +79,6 @@ export GIT_EDITOR="$VISUAL"
 
 export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"
+
+# Include sbin to $PATH
+export PATH="/usr/local/sbin:$PATH"
