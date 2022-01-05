@@ -21,7 +21,7 @@ nnoremap <silent>K :Lspsaga show_line_diagnostics<CR>
 
 " Telescope stuff
 nnoremap <leader>p <cmd>Telescope git_files<cr>
-nnoremap <leader>F <cmd>Telescope live_grep<cr>
+nnoremap <leader>F <cmd>lua require('telescope.builtin').live_grep{ cwd = vim.fn.systemlist("git rev-parse --show-toplevel")[1] }<cr>
 nnoremap <leader>r <cmd>Telescope lsp_document_symbols<cr>
 nnoremap <leader>gs <cmd>Telescope git_status<cr>
 
