@@ -54,6 +54,8 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 Open nvim (it should install VimPlug and do a PlugInstall on first run).
 
+For Rectangle, import the `config/rectangle/RectangleConfig.json` through the app's preferences.
+
 ## Fonts
 
 To download fonts just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):
