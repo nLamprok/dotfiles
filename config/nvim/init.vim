@@ -124,14 +124,13 @@ call plug#begin()
   Plug 'hrsh7th/nvim-cmp'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'windwp/nvim-autopairs'
-  Plug 'tami5/lspsaga.nvim', { 'branch': 'nvim51' }
+  Plug 'tami5/lspsaga.nvim',
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'nvim-lua/plenary.nvim'
   Plug 'yuezk/vim-js'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'Shatur/neovim-ayu'
-  " Plug 'arcticicestudio/nord-vim' 
   Plug 'nvim-lualine/lualine.nvim'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'kyazdani42/nvim-web-devicons'
