@@ -136,6 +136,7 @@ call plug#begin()
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'romgrk/barbar.nvim'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'jwalton512/vim-blade'
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
