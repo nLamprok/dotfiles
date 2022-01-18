@@ -73,6 +73,11 @@ alias dc="docker-compose"
 alias sail="vendor/bin/sail"
 alias r="source ~/.zshrc"
 
+# Parametrized Aliases
+change_php() {
+  brew unlink php && brew link --overwrite --force php@$1
+}
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
