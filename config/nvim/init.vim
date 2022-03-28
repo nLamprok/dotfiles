@@ -143,6 +143,7 @@ call plug#begin()
   Plug 'windwp/nvim-autopairs'
   Plug 'tpope/vim-commentary'
   Plug 'lewis6991/gitsigns.nvim'
+  Plug 'github/copilot.vim'
 call plug#end()
 
 " Simple plugin configuration (with no /after/plugin file)
@@ -155,6 +156,10 @@ lua require'colorizer'.setup()
 
 " lewis6991/gitsigns.nvim
 lua require('gitsigns').setup()
+
+" github/copilot.vim 
+imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
 " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 " ### INCLUDES

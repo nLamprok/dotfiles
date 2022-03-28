@@ -6,3 +6,24 @@ Host github.com
   HostName github.com
   IdentityFile ~/.ssh/id_rsa_old
 
+Host noeticblue-stg
+  User root
+  HostName cronos.noeticblue.com
+  IdentityFile ~/.ssh/id_rsa_old
+
+Host nsbytes-atlas
+  User ploi
+  HostName 159.69.29.183
+  IdentityFile ~/.ssh/id_rsa_old
+
+Host nsbytes-rhea
+  User ploi
+  HostName 195.201.129.49 
+  IdentityFile ~/.ssh/id_rsa_old
+
+Host aral-production
+  User aral
+  HostName 192.168.1.21
+  IdentityFile ~/.ssh/id_rsa_old
+
+

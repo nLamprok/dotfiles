@@ -59,7 +59,6 @@ alias gd='git diff'
 alias gdc='git diff --staged'
 alias gdb='git diff --diff-filter=d'
 alias gcb='git checkout .'
-alias gw='git add . && git commit -m "wip" --no-verify && git push'
 
 # Directories
 alias ..="cd .."
