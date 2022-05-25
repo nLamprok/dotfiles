@@ -1,22 +1,13 @@
-# Path to your oh-my-zsh installation.
-export ZSH="/Users/nlamprok/.oh-my-zsh"
+# Add Completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-ZSH_THEME="agnoster"
+  autoload -Uz compinit
+  compinit
+fi
 
-plugins=(git zsh-syntax-highlighting ripgrep)
-
-source $ZSH/oh-my-zsh.sh
-
-# Agnoster Overrides
-prompt_context() {
-  if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)%n"
-  fi
-}
-
-prompt_dir() {
-  prompt_segment blue $CURRENT_FG '%2~'
-}
+# Add Syntax Highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -29,7 +20,16 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Aliases
-alias ll="ls -lha"
+TREE_IGNORE="cache|log|logs|node_modules|vendor"
+
+alias ls='exa --group-directories-first'
+alias la='ls -a'
+alias ll='ls --git -lha'
+alias l='ll'
+alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
+alias ltt='ls --tree -D -L 3 -I ${TREE_IGNORE}'
+alias lttt='ls --tree -D -L 4 -I ${TREE_IGNORE}'
+alias ltttt='ls --tree -D -L 5 -I ${TREE_IGNORE}'
 
 # Neovim
 alias v="nvim"
@@ -84,5 +84,14 @@ export GIT_EDITOR="$VISUAL"
 export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"
 
+# Include .local/bin
+export PATH=~/.local/bin:$PATH
+
 # Include sbin to $PATH
 export PATH="/usr/local/sbin:$PATH"
+
+# Include composer binaries
+export PATH=~/.composer/vendor/bin:$PATH
+
+# Start starship
+eval "$(starship init zsh)"
