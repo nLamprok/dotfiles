@@ -1,172 +1,127 @@
-" Author: Nasos Lamprokostopoulos
-" Modified: 31/10/2021
+" Fundamentals "{{{
+" ---------------------------------------------------------------------
 
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" ### GENERAL CONFIGURATION
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-syntax on
-filetype plugin indent on
-
-" Remap leader
-let mapleader=','
-
-" Default indentation
-set tabstop=2                           " Insert 2 spaces for a tab
-set shiftwidth=2                        " Change the number of space characters inserted for indentation
-set smarttab                            " Makes tabbing smarter will realize you have 2 vs 4
-set expandtab                           " Converts tabs to spaces
-set smartindent                         " Makes indenting smart
-set autoindent
-
-" Special Filetypes
-autocmd FileType make   setlocal ts=8 sw=8 noexpandtab  " Makefile
-
-" Yaml
-autocmd BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
-" Encodings
-setglobal termencoding=utf-8 fileencodings=
+" init autocmd
+autocmd!
+" set script encoding
 scriptencoding utf-8
-set encoding=utf8
+" stop loading config if it's on tiny or small
+if !1 | finish | endif
 
-" General
-set nomodeline
-set autoread  " reread changed files automatically
-set ffs=unix
-set ttyfast
-set termguicolors
-set laststatus=2  " always show statusline
-set noshowcmd
-set hidden " change buffers without writing
-set number relativenumber " enable relative line numbers
-set modifiable
-set showmatch  " matching brackets
-set mouse=a  " mouse support
-set nostartofline
-set incsearch  " search pattern
-set hlsearch  " search highlighting
-set clipboard=unnamedplus
-set nowrap  " wrap lines
-set lazyredraw  " no redraw
-set ignorecase  " search ignore case
-set scrolljump=8  " minimal nb of lines to scroll when cursor gets off the screen
-set autochdir  " auto change working directory
-set fillchars=vert:┃
-set nocompatible " modern vim
-set showmode  " show vim mode (insert, visual, replace)
-set wildignorecase
-set matchpairs+=<:>
-set splitbelow  " for ex preview windows will appear at the bottom
-set splitright
-set noshowmode " don't show mode (aleady in statusline)
-set updatetime=300 " faster completion
-set completeopt=menu,menuone,noselect
-
-" Silence msg completion menu
-set shortmess+=c
-
-" diff splits
-set diffopt+=vertical
-
-" Folding
-set foldmethod=indent
-set foldlevel=99
-
-" Ignore files and folders
-set wildignore=*.swp,*.bak
-set wildignore+=*.pyc,*.class,*.cache,*.dll,*.DS_Store,*.rdb,*.db,*.sqlite
-set wildignore+=*/__pycache__/*,*/venv/*,*/node_modules/*,*/vendor/*
-
-" Deactivate bells and alerts
-set tm=500
-
-" No swp files / backups etc
-set noswapfile
+set nocompatible
+set number
+syntax enable
+set fileencodings=utf-8,sjis,euc-jp,latin
+set encoding=utf-8
+set title
+set autoindent
+set background=dark
 set nobackup
-set nowritebackup
+set hlsearch
+set showcmd
+set cmdheight=1
+set laststatus=2
+set scrolloff=10
+set expandtab
+"let loaded_matchparen = 1
+set shell=zsh
+set backupskip=/tmp/*,/private/tmp/*
 
-" Backspace as it should work
-set backspace=indent,eol,start
-set whichwrap+=<,>,h,l
-
-" Keep visual selection when reindenting
-xnoremap > >gv
-xnoremap < <gv
-
-" Save as root
-command! WW :w !sudo tee % >/dev/null
-
-" Disable automatic insertion of comment markers
-set fo=cjql
-autocmd FileType * setl fo-=o fo-=r
-
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" ### PLUGINS
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-" Install VimPlug and run PlugInstall on first run
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" incremental substitution (neovim)
+if has('nvim')
+  set inccommand=split
 endif
 
-" Plugin declaration
-call plug#begin()
-  Plug 'glepnir/dashboard-nvim'
-	Plug 'neovim/nvim-lspconfig'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/cmp-path'
-  Plug 'hrsh7th/cmp-cmdline'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'L3MON4D3/LuaSnip'
-  Plug 'windwp/nvim-autopairs'
-  Plug 'tami5/lspsaga.nvim',
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'yuezk/vim-js'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'Shatur/neovim-ayu'
-  Plug 'nvim-lualine/lualine.nvim'
-  Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'romgrk/barbar.nvim'
-  Plug 'editorconfig/editorconfig-vim'
-  Plug 'jwalton512/vim-blade'
-  Plug 'kristijanhusak/defx-git'
-  Plug 'kristijanhusak/defx-icons'
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'windwp/nvim-autopairs'
-  Plug 'tpope/vim-commentary'
-  Plug 'lewis6991/gitsigns.nvim'
-  Plug 'github/copilot.vim'
-call plug#end()
+" Suppress appending <PasteStart> and <PasteEnd> when pasting
+set t_BE=
 
-" Simple plugin configuration (with no /after/plugin file)
+set nosc noru nosm
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+"set showmatch
+" How many tenths of a second to blink when matching brackets
+"set mat=2
+" Ignore case when searching
+set ignorecase
+" Be smart when using tabs ;)
+set smarttab
+" indents
+filetype plugin indent on
+set shiftwidth=2
+set tabstop=2
+set ai "Auto indent
+set si "Smart indent
+set nowrap "No Wrap lines
+set backspace=start,eol,indent
+" Finding files - Search down into subfolders
+set path+=**
+set wildignore+=*/node_modules/*
 
-" glepnir/dashboard-nvim
-let g:dashboard_default_executive = 'telescope'
+" Turn off paste mode when leaving insert
+autocmd InsertLeave * set nopaste
 
-" norcalli/nvim-colorizer.lua
-lua require'colorizer'.setup()
+" Add asterisks in block comments
+set formatoptions+=r
 
-" lewis6991/gitsigns.nvim
-lua require('gitsigns').setup()
+"}}}
 
-" github/copilot.vim 
-imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+" Highlights "{{{
+" ---------------------------------------------------------------------
+set cursorline
 
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-" ### INCLUDES
-" >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+"}}}
 
-" Source theme
-runtime ./theme.vim
+" File types "{{{
+" ---------------------------------------------------------------------
 
-" Source keybindings
-runtime ./keybindings.vim
+" JavaScript
+au BufNewFile,BufRead *.es6 setf javascript
+" TypeScript
+au BufNewFile,BufRead *.tsx setf typescriptreact
+" Markdown
+au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.mdx set filetype=markdown
+
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+
+"}}}
+
+" Imports "{{{
+" ---------------------------------------------------------------------
+runtime ./plug.vim
+if has("unix")
+  let s:uname = system("uname -s")
+  " Do Mac stuff
+  if s:uname == "Darwin\n"
+    runtime ./macos.vim
+  endif
+endif
+if has('win32')
+  runtime ./windows.vim
+endif
+
+runtime ./maps.vim
+"}}}
+
+" Syntax theme "{{{
+" ---------------------------------------------------------------------
+
+" true color
+if exists("&termguicolors") && exists("&winblend")
+  syntax enable
+  set termguicolors
+  set winblend=0
+  set wildoptions=pum
+  set pumblend=5
+  set background=dark
+  colorscheme gruvbox
+endif
+
+"}}}
+
+" Extras "{{{
+" ---------------------------------------------------------------------
+set exrc
+"}}}
