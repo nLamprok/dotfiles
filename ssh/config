@@ -11,6 +11,11 @@ Host noeticblue-stg
   HostName cronos.noeticblue.com
   IdentityFile ~/.ssh/id_rsa_old
 
+Host noeticblue-atlas
+  User root
+  HostName atlas.noeticblue.com
+  IdentityFile ~/.ssh/id_rsa
+
 Host nsbytes-atlas
   User ploi
   HostName 159.69.29.183
