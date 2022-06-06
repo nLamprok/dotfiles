@@ -28,6 +28,7 @@ if has("nvim")
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'ellisonleao/gruvbox.nvim'
+  Plug 'github/copilot.vim'
 endif
 
 call plug#end()

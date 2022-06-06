@@ -11,14 +11,15 @@ nnoremap x "_x
 nnoremap + <C-a>
 nnoremap - <C-x>
 
-" Delete a word backwards
-nnoremap dw vb"_d
-
 " Select all
 nmap <C-a> gg<S-v>G
 
 " Save with root permission
 command! W w !sudo tee > /dev/null %
+
+" Keep visual selection while indenting
+vnoremap < <gv
+vnoremap > >gv
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
