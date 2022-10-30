@@ -45,6 +45,7 @@ alias vs="tmux splitw -h"
 alias tks="tmux kill-session -t"
 alias tksa="tmux kill-session -a"
 alias tls="tmux list-sessions"
+alias tns="tmux new-session -s"
 alias tma="tmux a -t"
 alias tsw="tmux switch -t"
 
