@@ -1,10 +1,11 @@
 # nLamprok's Dotfiles
 
-![](https://i.imgur.com/mRUQN9b.gif)
+![](https://imgur.com/TsE8hcw.png)
 
-**This is primararely used to backup personal dotfiles. Don't use it unless you know what you're doing.**  
+**This is primararely used to backup personal dotfiles. Don't use it unless you know what you're doing.**
 
 Clone repo
+
 ```sh
 git clone https://github.com/nLamprok/dotfiles.git
 ```
@@ -12,17 +13,20 @@ git clone https://github.com/nLamprok/dotfiles.git
 ## Initial Steps
 
 macOS settings
+
 ```sh
 sh macos/macos
 # Then log user out and back in for all changes to apply
 ```
 
 Install Homebrew:
+
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 Install brew apps (using `Brewfile` from this repo). Just run (in this directory):
+
 ```sh
 brew bundle
 ```
@@ -42,11 +46,13 @@ There's a useful (and dangerous) `symlink.sh` command which you can run to setup
 ## Post-Symlinking
 
 Install oh-my-zsh:
+
 ```sh
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 Install [TPM](https://github.com/tmux-plugins/tpm) for tmux:
+
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # after that, just open tmux and hit Prefix + I to install plugins
@@ -65,6 +71,6 @@ JetBrainsMono, CaskaydiaCove, Operator Mono (can't be found on NerdFonts).
 ## Maintaining
 
 Since symlinks are in-place, maintenance is just a simple commit & push to this repo. The only downside
-to the current structure is the `Brewfile`. To update the currently installed brew formulaes and casks 
-simply run the `./updateBrew.sh` executable (assumes that you have brew in your system) and will generate 
+to the current structure is the `Brewfile`. To update the currently installed brew formulaes and casks
+simply run the `./updateBrew.sh` executable (assumes that you have brew in your system) and will generate
 a brand new `Brewfile` which then can be commited and pushed.
