@@ -30,7 +30,7 @@ null_ls.setup({
 
 		code_actions.eslint_d.with({ condition = has_eslint_configured }),
 
-		formatting.pint,
+		formatting.phpcbf,
 		formatting.stylua, -- lua formatter
 		formatting.prettier.with({
 			-- Enable conditionally if and only if eslint_d is not enabled.

@@ -76,6 +76,12 @@ lspconfig["cssls"].setup({
 	on_attach = on_attach,
 })
 
+-- configure css server
+lspconfig["intelephense"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- configure tailwindcss server
 lspconfig["tailwindcss"].setup({
 	capabilities = capabilities,
