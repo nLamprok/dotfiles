@@ -16,6 +16,7 @@ keymap.set("n", "<ESC>", "<cmd> noh<CR>")
 
 keymap.set("n", "x", '"_x') -- delete single character without copying into register
 keymap.set("x", "x", '"_x') -- delete visual selection without yank
+keymap.set("x", "<leader>p", '"_dP') -- paste without replacing buffer
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>") -- increment
