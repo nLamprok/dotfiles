@@ -51,6 +51,9 @@ alias tns="tmux new-session -s"
 alias tma="tmux a -t"
 alias tsw="tmux switch -t"
 
+# zellij
+alias zj="zellij"
+
 # Git commands
 alias gs='git status'
 alias gc='git commit'
@@ -95,6 +98,9 @@ export PATH="/usr/local/sbin:$PATH"
 
 # Include composer binaries
 export PATH=~/.composer/vendor/bin:$PATH
+
+# Include cargo packages
+export PATH=/Users/nlamprok/.cargo/bin:$PATH
 
 # Start starship
 eval "$(starship init zsh)"
