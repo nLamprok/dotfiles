@@ -24,7 +24,7 @@ fi
 # Aliases
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
 
-alias ls='exa --group-directories-first'
+alias ls='eza --group-directories-first'
 alias la='ls -a'
 alias ll='ls --git -lha'
 alias l='ll'
