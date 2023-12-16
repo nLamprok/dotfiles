@@ -1,16 +1,3 @@
-# Add Completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
-# Add Syntax Highlighting
-if type brew &>/dev/null; then
-  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -32,6 +19,11 @@ alias lt='ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ltt='ls --tree -D -L 3 -I ${TREE_IGNORE}'
 alias lttt='ls --tree -D -L 4 -I ${TREE_IGNORE}'
 alias ltttt='ls --tree -D -L 5 -I ${TREE_IGNORE}'
+
+alias clr='clear'
+
+# Kube
+alias k='kubectl'
 
 # Neovim
 alias v="nvim"
@@ -90,6 +82,9 @@ export GIT_EDITOR="$VISUAL"
 export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"
 
+# Include Homebrew to PATH
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Include .local/bin
 export PATH=~/.local/bin:$PATH
 
@@ -116,3 +111,16 @@ esac
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add Completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
+
+# Add Syntax Highlighting
+if type brew &>/dev/null; then
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
