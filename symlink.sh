@@ -25,7 +25,4 @@ ln -s -f $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
 echo "$DOTFILES/config/nvim => $HOME/.config/nvim";
 ln -s -F $DOTFILES/config/nvim $HOME/.config
 
-echo "$DOTFILES/config/raycast => $HOME/.config/raycast";
-ln -s -F $DOTFILES/config/raycast $HOME/.config
-
 echo "\nDone :)"
