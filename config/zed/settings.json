@@ -1,0 +1,16 @@
+{
+  "theme": "Rosé Pine",
+  "telemetry": {
+    "metrics": false
+  },
+  "ui_font_family": "CaskaydiaCove Nerd Font Mono",
+  "buffer_font_family": "CaskaydiaCove Nerd Font Mono",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 14,
+  "tab_size": 2,
+  "relative_line_numbers": true,
+  "project_panel": {
+    "dock": "right"
+  }
+}

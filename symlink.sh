@@ -10,6 +10,7 @@ while true; do
 done
 
 echo "\n--> Starting root symlinks: \n";
+
 echo "$DOTFILES/zsh/.zshrc => $HOME/.zshrc";
 ln -s -f $DOTFILES/zsh/.zshrc $HOME/.zshrc
 
@@ -24,5 +25,11 @@ ln -s -f $DOTFILES/tmux/.tmux.conf $HOME/.tmux.conf
 
 echo "$DOTFILES/config/nvim => $HOME/.config/nvim";
 ln -s -F $DOTFILES/config/nvim $HOME/.config
+
+echo "$DOTFILES/config/zed/keymap.json => $HOME/.config/zed/keymap.json";
+ln -s -F $DOTFILES/config/zed/keymap.json $HOME/.config/zed/keymap.json
+
+echo "$DOTFILES/config/zed/settings.json => $HOME/.config/zed/settings.json";
+ln -s -F $DOTFILES/config/zed/settings.json $HOME/.config/zed/settings.json
 
 echo "\nDone :)"
