@@ -9,5 +9,11 @@
       "space c a": "editor::ToggleCodeActions",
       "space f e": "workspace::ToggleRightDock"
     }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "g c": "editor::ToggleComments"
+    }
   }
 ]
