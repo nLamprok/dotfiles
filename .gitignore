@@ -30,3 +30,6 @@ config/nvim/plugged
 
 # Avoid storing Raycast's node modules to git 
 config/raycast/extensions/node_modules
+
+# Avoid storing tmux plugins
+config/tmux/plugins
