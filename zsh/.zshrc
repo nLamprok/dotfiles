@@ -58,6 +58,9 @@ alias gdc='git diff --staged'
 alias gdb='git diff --diff-filter=d'
 alias gcb='git checkout .'
 
+# Lazy Git
+alias lg='lazygit'
+
 # Directories
 alias ..="cd .."
 alias ...="cd ../.."
