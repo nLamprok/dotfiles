@@ -1,8 +1,9 @@
 # nLamprok's Dotfiles
 
-![](https://imgur.com/TsE8hcw.png)
+![](https://i.imgur.com/pi5d9RY.png)
 
-**This is primararely used to backup personal dotfiles. Don't use it unless you know what you're doing.**
+**This repo is primarily used as a backup to my personal dotfiles.
+Don't use it unless you know what you're doing.**
 
 Clone repo
 
@@ -45,12 +46,6 @@ There's a useful (and dangerous) `symlink.sh` command which you can run to setup
 
 ## Post-Symlinking
 
-Install oh-my-zsh:
-
-```sh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
 Install [TPM](https://github.com/tmux-plugins/tpm) for tmux:
 
 ```sh
@@ -58,9 +53,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # after that, just open tmux and hit Prefix + I to install plugins
 ```
 
-Open nvim (it should install VimPlug and do a PlugInstall on first run).
-
-For Rectangle, import the `config/rectangle/RectangleConfig.json` through the app's preferences.
+Open nvim (uses LazyVim under the hood, everything should be installed automatically).
 
 ## Fonts
 
