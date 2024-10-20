@@ -1,2 +1,2 @@
-require("nlamprok.core")
-require("nlamprok.packages")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
