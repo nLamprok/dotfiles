@@ -29,6 +29,9 @@ ln -s -F $DOTFILES/config/nvim $HOME/.config
 echo "$DOTFILES/config/kitty => $HOME/.config/kitty"
 ln -s -F $DOTFILES/config/kitty $HOME/.config
 
+echo "$DOTFILES/config/ghostty => $HOME/.config/ghostty"
+ln -s -F $DOTFILES/config/ghostty $HOME/.config
+
 echo "$DOTFILES/config/zed/keymap.json => $HOME/.config/zed/keymap.json"
 ln -s -F $DOTFILES/config/zed/keymap.json $HOME/.config/zed/keymap.json
 
