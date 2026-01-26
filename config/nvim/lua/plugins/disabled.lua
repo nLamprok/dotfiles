@@ -1,4 +1,7 @@
 return {
   -- Disable auto opening (){}[]
-  { "echasnovski/mini.pairs", enabled = false },
+  { "nvim-mini/mini.pairs", enabled = false },
+  -- Disable Copilot
+  { "zbirenbaum/copilot.lua", enabled = false },
+  { "fang2hou/blink-copilot", enabled = false },
 }

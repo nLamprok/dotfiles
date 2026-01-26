@@ -33,6 +33,9 @@ alias svi="sudo nvim"
 alias edit="nvim"
 alias e="nvim"
 
+# Claude Code
+alias cc="claude"
+
 # Tmux
 alias sp="tmux splitw -v"
 alias vs="tmux splitw -h"
@@ -127,3 +130,4 @@ fi
 if type brew &>/dev/null; then
   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"

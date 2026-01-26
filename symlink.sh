@@ -21,21 +21,21 @@ echo "$DOTFILES/git/gitignore_global => $HOME/.gitignore_global"
 ln -s -f $DOTFILES/git/gitignore_global $HOME/.gitignore_global
 
 echo "$DOTFILES/config/tmux => $HOME/.config/tmux"
-ln -s -F $DOTFILES/config/tmux $HOME/.config
+ln -s -f $DOTFILES/config/tmux $HOME/.config
 
 echo "$DOTFILES/config/nvim => $HOME/.config/nvim"
-ln -s -F $DOTFILES/config/nvim $HOME/.config
+ln -s -f $DOTFILES/config/nvim $HOME/.config
 
 echo "$DOTFILES/config/kitty => $HOME/.config/kitty"
-ln -s -F $DOTFILES/config/kitty $HOME/.config
+ln -s -f $DOTFILES/config/kitty $HOME/.config
 
 echo "$DOTFILES/config/ghostty => $HOME/.config/ghostty"
-ln -s -F $DOTFILES/config/ghostty $HOME/.config
+ln -s -f $DOTFILES/config/ghostty $HOME/.config
 
 echo "$DOTFILES/config/zed/keymap.json => $HOME/.config/zed/keymap.json"
-ln -s -F $DOTFILES/config/zed/keymap.json $HOME/.config/zed/keymap.json
+ln -s -f $DOTFILES/config/zed/keymap.json $HOME/.config/zed/keymap.json
 
 echo "$DOTFILES/config/zed/settings.json => $HOME/.config/zed/settings.json"
-ln -s -F $DOTFILES/config/zed/settings.json $HOME/.config/zed/settings.json
+ln -s -f $DOTFILES/config/zed/settings.json $HOME/.config/zed/settings.json
 
 echo "\nDone :)"
