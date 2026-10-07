@@ -32,6 +32,9 @@ ln -s -f $DOTFILES/config/kitty $HOME/.config
 echo "$DOTFILES/config/ghostty => $HOME/.config/ghostty"
 ln -s -f $DOTFILES/config/ghostty $HOME/.config
 
+echo "$DOTFILES/config/btop => $HOME/.config/btop"
+ln -s -f $DOTFILES/config/btop $HOME/.config
+
 echo "$DOTFILES/config/zed/keymap.json => $HOME/.config/zed/keymap.json"
 ln -s -f $DOTFILES/config/zed/keymap.json $HOME/.config/zed/keymap.json
 

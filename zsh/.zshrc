@@ -81,6 +81,16 @@ change_php() {
   brew unlink php && brew link --overwrite --force php@$1
 }
 
+# btop persists a fully-resolved absolute color_theme path on exit, which breaks
+# the shared dotfiles config across machines/OSes. Reset it to the portable
+# name-only form before each launch so it always resolves via btop's own
+# $HOME/.config/btop/themes search path.
+btop() {
+  sed -i.bak -E 's|^color_theme = ".*"|color_theme = "tokyo-night"|' ~/.config/btop/btop.conf 2>/dev/null
+  rm -f ~/.config/btop/btop.conf.bak
+  command btop "$@"
+}
+
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$VISUAL"
