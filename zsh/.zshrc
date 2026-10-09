@@ -89,7 +89,6 @@ btop() {
 export VISUAL="$EDITOR"
 export GIT_EDITOR="$EDITOR"
 
-export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"
 
 # Homebrew itself is set up in ~/.zprofile (brew shellenv).
@@ -113,10 +112,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Completions (brew shellenv already adds Homebrew's site-functions to fpath)
 autoload -Uz compinit
