@@ -5,65 +5,95 @@
 **This repo is primarily used as a backup to my personal dotfiles.
 Don't use it unless you know what you're doing.**
 
-Clone repo
+## Setup
+
+Clone into `~/dotfiles` (the `dots` alias in `.zshrc` expects it there):
 
 ```sh
-git clone https://github.com/nLamprok/dotfiles.git
+git clone https://github.com/nLamprok/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
-## Initial Steps
-
-macOS settings
+Install [Homebrew](https://brew.sh):
 
 ```sh
-sh macos/macos
-# Then log user out and back in for all changes to apply
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Install Homebrew:
-
-```sh
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-Install brew apps (using `Brewfile` from this repo). Just run (in this directory):
+Install everything in the `Brewfile` (CLI tools, apps, fonts, and App Store apps via `mas`; sign in to the App Store first):
 
 ```sh
 brew bundle
 ```
 
-## Symlinking
+Symlink the configs into place:
 
-Symlink all the things you need:
+```sh
+./symlink.sh -n   # dry run: show what would change
+./symlink.sh
+```
 
-1. `config/` folder contains configuration of most of the things (symlink contents to `~/.config`)
-2. `git/` folder has some useful git configuration (symlink to `~/.gitconfig` & `~/.gitignore_global`)
-3. `ssh/` has a simple config file to make sure macOS uses KeyChain for passphrases
-4. `zsh/` has my `.zshrc` which you need to symlink to your home directory `~/`
-5. Don't forget to also symlink your `~/.config/nvim/init.vim` to `~/.vimrc`
+Apply macOS preferences, then log out and back in:
 
-There's a useful (and dangerous) `symlink.sh` command which you can run to setup symlinks.
+```sh
+./macos/macos
+```
 
-## Post-Symlinking
+### Post-setup
 
-Install [TPM](https://github.com/tmux-plugins/tpm) for tmux:
+Install [TPM](https://github.com/tmux-plugins/tpm) for tmux, then open tmux and press `Prefix + I` to install the plugins:
 
 ```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# after that, just open tmux and hit Prefix + I to install plugins
 ```
 
-Open nvim (uses LazyVim under the hood, everything should be installed automatically).
+Open `nvim`. It uses [LazyVim](https://www.lazyvim.org), so plugins install automatically.
+
+If `compinit` warns about insecure directories when you open a shell, run `chmod go-w "$(brew --prefix)/share"`.
+
+## What's in here
+
+| Path                  | What                                                                  |
+| --------------------- | --------------------------------------------------------------------- |
+| `Brewfile`            | Formulae, casks, fonts and App Store apps (curated by hand)           |
+| `symlink.sh`          | Links configs into `$HOME`, only for apps that are installed           |
+| `brew-check.sh`       | Reports drift between this Mac and the `Brewfile`                     |
+| `macos/macos`         | macOS `defaults` (keyboard, trackpad, Dock, Finder, shortcuts)        |
+| `zsh/.zshrc`          | Shell config, aliases, PATH                                           |
+| `git/`                | `~/.gitconfig` (with [delta](https://github.com/dandavison/delta)) and `~/.gitignore_global` |
+| `config/nvim`         | Neovim (LazyVim)                                                      |
+| `config/tmux`         | tmux (prefix `C-a`)                                                   |
+| `config/ghostty`      | Ghostty terminal                                                      |
+| `config/starship.toml`| Starship prompt                                                       |
+| `config/lazygit`      | lazygit, linked to `~/Library/Application Support/lazygit`            |
+| `config/btop`         | btop + Tokyo Night theme                                              |
+
+Configs for apps I don't currently use are kept around in case I come back to them:
+`config/kitty`, `config/zed`, `config/alacritty`, `config/wezterm` and `config/zellij`.
+`symlink.sh` links them automatically once the app is installed.
+
+These need a manual import instead of a symlink:
+
+- `iterm/`: iTerm2 profile and color schemes (Settings → Profiles → Import)
+- `config/rectangle/RectangleConfig.json`: Rectangle (Settings → Import)
 
 ## Fonts
 
-To download fonts just visit [NerdFonts](https://www.nerdfonts.com/font-downloads):
-
-JetBrainsMono, CaskaydiaCove, Operator Mono (can't be found on NerdFonts).
+[CaskaydiaCove Nerd Font](https://www.nerdfonts.com/font-downloads) is installed from the `Brewfile` and used by Ghostty.
 
 ## Maintaining
 
-Since symlinks are in-place, maintenance is just a simple commit & push to this repo. The only downside
-to the current structure is the `Brewfile`. To update the currently installed brew formulaes and casks
-simply run the `./updateBrew.sh` executable (assumes that you have brew in your system) and will generate
-a brand new `Brewfile` which then can be commited and pushed.
+Symlinks are in place, so editing a config is just a commit & push.
+
+The `Brewfile` is curated by hand. Check for drift with:
+
+```sh
+./brew-check.sh
+```
+
+Then add or remove lines manually. Things to avoid:
+
+- `brew bundle dump -f` regenerates the file and wipes manual curation.
+- `brew bundle cleanup --force` uninstalls everything not in the `Brewfile`, including work apps (Teams, Outlook, Windows App) that are left out on purpose.
+
+After installing or removing an app that has a config here, re-run `./symlink.sh`. It's safe to run any number of times: correct links are left alone, anything else at the target gets backed up to `~/.dotfiles-backup/<timestamp>/`, and stale links for uninstalled apps are removed.
