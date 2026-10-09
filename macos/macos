@@ -1,103 +1,116 @@
-#MacOS config file and preferences.
+#!/usr/bin/env bash
+#
+# macOS preferences. Run with `./macos/macos`, then log out and back in.
 
-# No font smoothing
-defaults -currentHost write -g AppleFontSmoothing -int 1
-# defaults write com.apple.Terminal AppleFontSmoothing -int 1
-# defaults write org.vim.MacVim AppleFontSmoothing -int 1
-defaults write NSGlobalDomain AppleFontSmoothing -int 1
+###############################################################################
+# General UI                                                                  #
+###############################################################################
 
 # Dark UI
 defaults write NSGlobalDomain AppleInterfaceStyle -string "Dark"
 
-# Terminal scrollbars
-defaults write com.apple.Terminal AppleShowScrollBars -string "Automatic"
+# Light font smoothing (0 = off, 1 = light, 2 = medium)
+defaults write NSGlobalDomain AppleFontSmoothing -int 1
+defaults -currentHost write NSGlobalDomain AppleFontSmoothing -int 1
 
-# Don't show recent
-defaults write com.apple.dock show-recents -bool false
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-#disable special characters when holding keys
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-# normal minimum is 15 (225 ms)
-# defaults write -g InitialKeyRepeat -float 10.0
-# defaults write NSGlobalDomain InitialKeyRepeat -float 10.0
-
-# normal minimum is 2 (30 ms)
-defaults write -g KeyRepeat -float 2.0
-defaults write NSGlobalDomain KeyRepeat -float 2.0
-
-# Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-# Disable auto capitalize
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-# Disable iuto period insert
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable ihe system alert sound
+# Disable the system alert sound and UI sound effects
 defaults write NSGlobalDomain com.apple.sound.beep.volume -int 0
 defaults write NSGlobalDomain com.apple.sound.uiaudio.enabled -int 0
 
-# Remove shortcuts that are annoying while using tmux or switching with vim
-defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Mission Control' nil
-defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Application windows' nil
-defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Move left a space' nil
-defaults write NSGlobalDomain NSUserKeyEquivalents -dict-add 'Move right a space' nil
+# Terminal.app scrollbars
+defaults write com.apple.Terminal AppleShowScrollBars -string "Automatic"
 
-# Automatically hide/show the Dock
+###############################################################################
+# Keyboard & text input                                                       #
+###############################################################################
+
+# Key repeat instead of the accent picker when holding a key
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Fast key repeat (UI minimum is 2 = 30 ms)
+defaults write NSGlobalDomain KeyRepeat -int 2
+# Delay until repeat (UI minimum is 15 = 225 ms)
+# defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Disable auto-correct, auto-capitalize and double-space period
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Disable Mission Control ctrl+arrow shortcuts (they clash with tmux/vim).
+# Parameters are kept so the shortcut is restored if re-enabled in Settings.
+disable_hotkey() { # <id> <key code> <modifiers>
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add "$1" \
+    "<dict><key>enabled</key><false/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>65535</integer><integer>$2</integer><integer>$3</integer></array></dict></dict>"
+}
+disable_hotkey 32 126 8650752 # Mission Control       (ctrl+up)
+disable_hotkey 33 125 8650752 # Application windows   (ctrl+down)
+disable_hotkey 79 123 8650752 # Move left a space     (ctrl+left)
+disable_hotkey 80 123 8781824 #                       (ctrl+shift+left)
+disable_hotkey 81 124 8650752 # Move right a space    (ctrl+right)
+disable_hotkey 82 124 8781824 #                       (ctrl+shift+right)
+
+###############################################################################
+# Trackpad                                                                    #
+###############################################################################
+
+# Tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Two-finger click/tap for secondary click (no corner click)
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -int 1
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
+defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 0
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 0
+
+###############################################################################
+# Dock & Spaces                                                               #
+###############################################################################
+
+# Auto-hide the Dock with no delay
 defaults write com.apple.dock autohide -bool true
-
-# Disable the hide Dock delay
 defaults write com.apple.dock autohide-delay -float 0
 
-# Do not automatically rearrange spaces based on most recent use
-defaults write com.apple.dock mru-spaces -bool false
-
-# Show indicator lights for open applications
+# Show indicator lights for open apps, hide recent apps
 defaults write com.apple.dock show-process-indicators -bool true
-
-# Do not show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
 
-# Use column view in all Finder windows by default
-defaults write com.apple.finder FXPreferredViewStyle -string 'clsv'
+# Don't rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Column view by default
+defaults write com.apple.finder FXPreferredViewStyle -string "clsv"
 
 # Hide recent tags
 defaults write com.apple.finder ShowRecentTags -bool false
 
-# Enable Tap to Click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true && \
-    defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1 && \
-    defaults write -g com.apple.mouse.tapBehavior -int 1 && \
-    defaults -currentHost write -g com.apple.mouse.tapBehavior -int 1
+# No .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 
-# Map 'click or tap with two fingers' to the secondary click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true && \
-    defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -int 1 && \
-    defaults -currentHost write -g com.apple.trackpad.enableSecondaryClick -bool true && \
-    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0 && \
-    defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 0 && \
-    defaults -currentHost write -g com.apple.trackpad.trackpadCornerClickBehavior -int 0
-
-# Avoid creating '.DS_Store' files on network or USB volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true && \
-    defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-# Expand save panel by default
-defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
-
-# Always show Library folder
+# Always show ~/Library
 chflags nohidden ~/Library/
 
-# Give Dock a kick to save the changes
-killall "Dock" &> /dev/null
+###############################################################################
+# Apply                                                                       #
+###############################################################################
 
-# Restart Finder as well
-killall "Finder" &> /dev/null
+# Flush the preferences cache, then restart affected apps
+killall cfprefsd &>/dev/null
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u &>/dev/null
+killall Dock &>/dev/null
+killall Finder &>/dev/null
 
-## Starting with Mac OS X Mavericks preferences are cached,
-# so in order for things to get properly set using `PlistBuddy`,
-# the `cfprefsd` process also needs to be killed.
-#
-# https://github.com/alrra/dotfiles/commit/035dda057ddc6013ba21db3d2c30eeb51ba8f200
-
-killall "cfprefsd" &> /dev/null
+echo "Done. Log out and back in for all changes to apply."
