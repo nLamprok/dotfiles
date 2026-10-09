@@ -23,6 +23,7 @@ DRY_RUN=0
 # source (relative to repo) | target | requirement
 #   requirement: empty = always, "cmd:<name>" = command on PATH, "app:<Name>" = <Name>.app installed
 LINKS=(
+  "zsh/.zprofile|$HOME/.zprofile|"
   "zsh/.zshrc|$HOME/.zshrc|"
   "git/gitconfig|$HOME/.gitconfig|"
   "git/gitignore_global|$HOME/.gitignore_global|"

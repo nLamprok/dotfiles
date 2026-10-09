@@ -5,8 +5,8 @@ else
   export EDITOR='nvim'
 fi
 
-# FZF Bindings
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# FZF Bindings (Ctrl-R history, Ctrl-T files, Alt-C cd)
+command -v fzf >/dev/null && source <(fzf --zsh)
 
 # Aliases
 TREE_IGNORE="cache|log|logs|node_modules|vendor"
@@ -72,14 +72,9 @@ alias .....="cd ../../../.."
 alias dots="cd ~/dotfiles"
 
 # Misc
-alias dc="docker-compose"
+alias dc="docker compose"
 alias sail="vendor/bin/sail"
 alias r="source ~/.zshrc"
-
-# Parametrized Aliases
-change_php() {
-  brew unlink php && brew link --overwrite --force php@$1
-}
 
 # btop persists a fully-resolved absolute color_theme path on exit, which breaks
 # the shared dotfiles config across machines/OSes. Reset it to the portable
@@ -91,33 +86,28 @@ btop() {
   command btop "$@"
 }
 
-export VISUAL=nvim
-export EDITOR="$VISUAL"
-export GIT_EDITOR="$VISUAL"
+export VISUAL="$EDITOR"
+export GIT_EDITOR="$EDITOR"
 
 export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"
 
-# Include Homebrew to PATH
-export PATH="/opt/homebrew/bin:$PATH"
-
-# Include .local/bin
-export PATH=~/.local/bin:$PATH
-
-# Include sbin to $PATH
-export PATH="/usr/local/sbin:$PATH"
-
-# Include composer binaries
-export PATH=~/.composer/vendor/bin:$PATH
-
-# Include cargo packages
-export PATH=/Users/nlamprok/.cargo/bin:$PATH
+# Homebrew itself is set up in ~/.zprofile (brew shellenv).
+# Prepend user bin dirs; (N) skips the ones that don't exist.
+typeset -U path
+path=(
+  ~/.local/bin(N)
+  ~/.cargo/bin(N)
+  ~/.composer/vendor/bin(N)
+  $HOMEBREW_PREFIX/opt/openjdk@17/bin(N)
+  $path
+)
 
 # Start starship
 eval "$(starship init zsh)"
 
 # pnpm
-export PNPM_HOME="/Users/nlamprok/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -128,16 +118,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Add Completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+# Completions (brew shellenv already adds Homebrew's site-functions to fpath)
+autoload -Uz compinit
+compinit
 
-  autoload -Uz compinit
-  compinit
-fi
-
-# Add Syntax Highlighting
-if type brew &>/dev/null; then
-  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+# Syntax highlighting (must be sourced last)
+[ -f "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] &&
+  source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
