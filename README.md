@@ -59,7 +59,7 @@ If `compinit` warns about insecure directories when you open a shell, run `chmod
 | `symlink.sh`          | Links configs into `$HOME`, only for apps that are installed           |
 | `brew-check.sh`       | Reports drift between this Mac and the `Brewfile`                     |
 | `macos/macos`         | macOS `defaults` (keyboard, trackpad, Dock, Finder, shortcuts)        |
-| `zsh/.zshrc`          | Shell config, aliases, PATH                                           |
+| `zsh/`                | `.zprofile` (Homebrew env) and `.zshrc` (aliases, PATH, prompt)       |
 | `git/`                | `~/.gitconfig` (with [delta](https://github.com/dandavison/delta)) and `~/.gitignore_global` |
 | `config/nvim`         | Neovim (LazyVim)                                                      |
 | `config/tmux`         | tmux (prefix `C-a`)                                                   |
