@@ -2,12 +2,11 @@
 #
 # Report drift between this Mac and the Brewfile. Changes nothing.
 #
-# The Brewfile is curated by hand (ordering, mas apps, deliberate omissions like
-# work apps), so never regenerate it with `brew bundle dump -f`. Add or remove
+# The Brewfile is curated by hand (ordering, mas apps, deliberate omissions), so never regenerate it with `brew bundle dump -f`. Add or remove
 # lines manually based on this report.
 #
 # Never run `brew bundle cleanup --force`: it uninstalls everything not in the
-# Brewfile, including work apps (Teams, Outlook, Windows App) on purpose left out.
+# Brewfile, including apps installed outside it on purpose.
 
 set -uo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
