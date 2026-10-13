@@ -79,3 +79,8 @@
     syntax-theme = OneHalfDark
     whitespace-error-style = reverse red
     zero-style = dim syntax
+
+# Machine-specific overrides (e.g. a different email per directory with
+# includeIf). Kept out of the repo; ignored if the file doesn't exist.
+[include]
+	path = ~/.gitconfig.local
