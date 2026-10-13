@@ -1,6 +1,6 @@
 # nLamprok's Dotfiles
 
-![](https://i.imgur.com/pi5d9RY.png)
+![Ghostty with tmux, fastfetch and Neovim](assets/screenshot-2026.png)
 
 **This repo is primarily used as a backup to my personal dotfiles.
 Don't use it unless you know what you're doing.**
