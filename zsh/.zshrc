@@ -113,6 +113,12 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# nvm (from Homebrew); node versions live in ~/.nvm so they survive brew upgrades
+export NVM_DIR="$HOME/.nvm"
+[ -d "$NVM_DIR" ] || mkdir -p "$NVM_DIR"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh"
+[ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm"
+
 # Completions (brew shellenv already adds Homebrew's site-functions to fpath)
 autoload -Uz compinit
 compinit
